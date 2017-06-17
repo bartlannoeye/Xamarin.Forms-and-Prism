@@ -5,7 +5,9 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismFormsAutofac.Views.MainPage"
              Title="MainPage">
-  <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-    <Label Text="{Binding Title}" />
-  </StackLayout>
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="{Binding Title}" />
+        <Switch IsToggled="{Binding IsActive}" />
+        <Button Text="Navigate to View A" Command="{Binding NavigateCommand}" />
+    </StackLayout>
 </ContentPage>
