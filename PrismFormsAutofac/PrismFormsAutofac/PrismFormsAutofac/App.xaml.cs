@@ -1,33 +1,23 @@
-﻿using Autofac;
-using Prism.Autofac;
+﻿using Prism.Autofac;
 using Prism.Autofac.Forms;
 using PrismFormsAutofac.Views;
 using Xamarin.Forms;
 
 namespace PrismFormsAutofac
 {
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
-        public App()
+        protected override void OnInitialized()
         {
-            InitializeComponent();
-
-            MainPage = new MainPage();
+            NavigationService.NavigateAsync("NavigationPage/MainPage");
         }
 
-        protected override void OnStart()
+        protected override void RegisterTypes()
         {
-            // Handle when your app starts
-        }
-
-        protected override void OnSleep()
-        {
-            // Handle when your app sleeps
-        }
-
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
+            Container.RegisterTypeForNavigation<NavigationPage>();
+            Container.RegisterTypeForNavigation<MainPage>();
+            Container.RegisterTypeForNavigation<ViewA>();
+            Container.RegisterTypeForNavigation<ViewB>();
         }
     }
 }

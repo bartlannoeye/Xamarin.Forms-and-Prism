@@ -1,12 +1,17 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Navigation;
 
 namespace PrismFormsAutofac.ViewModels
 {
     public class MainPageViewModel : BindableBase
     {
-        public MainPageViewModel()
+        private readonly INavigationService _navigationService;
+
+        public MainPageViewModel(INavigationService navigationService)
         {
+            _navigationService = navigationService;
+
             Title = "Hello from ViewModel";
             NavigateCommand = new DelegateCommand(Navigate).ObservesCanExecute(() => IsActive);
         }
@@ -29,6 +34,7 @@ namespace PrismFormsAutofac.ViewModels
 
         private void Navigate()
         {
+            _navigationService.NavigateAsync("ViewA");
         }
     }
 }
