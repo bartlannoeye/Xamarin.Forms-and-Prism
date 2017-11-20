@@ -4,7 +4,7 @@ using Prism.Navigation;
 
 namespace PrismFormsAutofac.ViewModels
 {
-    internal class ViewBViewModel : BindableBase
+    internal class ViewBViewModel : BindableBase, INavigatedAware
     {
         private readonly INavigationService _navigationService;
 
@@ -26,6 +26,18 @@ namespace PrismFormsAutofac.ViewModels
         private void Navigate()
         {
             _navigationService.GoBackAsync();
+        }
+
+        public void OnNavigatedFrom(NavigationParameters parameters)
+        {
+        }
+
+        public void OnNavigatedTo(NavigationParameters parameters)
+        {
+            if (parameters.ContainsKey("id"))
+            {
+                Title = $"ViewB: {parameters["id"]}";
+            }
         }
     }
 }

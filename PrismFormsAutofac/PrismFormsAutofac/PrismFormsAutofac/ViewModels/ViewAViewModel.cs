@@ -25,11 +25,21 @@ namespace PrismFormsAutofac.ViewModels
             set => SetProperty(ref _title, value);
         }
 
+        private string _myParameter;
+        public string MyParameter
+        {
+            get => _myParameter;
+            set => SetProperty(ref _myParameter, value);
+        }
+
         public DelegateCommand NavigateCommand { get; private set; }
 
         private void Navigate()
         {
-            _navigationService.NavigateAsync("ViewB");
+            var parameters = new NavigationParameters();
+            parameters.Add("id", MyParameter);
+
+            _navigationService.NavigateAsync("ViewB", parameters);
         }
     }
 }
