@@ -1,6 +1,8 @@
 ﻿using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
 using Prism.Navigation;
+using PrismFormsAutofac.Events;
 
 namespace PrismFormsAutofac.ViewModels
 {
@@ -8,12 +10,13 @@ namespace PrismFormsAutofac.ViewModels
     {
         private readonly INavigationService _navigationService;
 
-        public MainPageViewModel(INavigationService navigationService)
+        public MainPageViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
         {
             _navigationService = navigationService;
-
+            
             Title = "Hello from ViewModel";
             NavigateCommand = new DelegateCommand(Navigate).ObservesCanExecute(() => IsActive);
+            eventAggregator.GetEvent<MyEvent>().Subscribe((s) => Title = s);
         }
 
         private string _title;
