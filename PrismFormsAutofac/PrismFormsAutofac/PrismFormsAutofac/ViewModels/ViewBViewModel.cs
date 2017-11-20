@@ -25,6 +25,7 @@ namespace PrismFormsAutofac.ViewModels
 
         private void Navigate()
         {
+            _navigationService.GoBackAsync();
         }
     }
 }

@@ -3,13 +3,18 @@ using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Prism.Navigation;
 
 namespace PrismFormsAutofac.ViewModels
 {
     public class ViewAViewModel : BindableBase
     {
-        public ViewAViewModel()
+        private readonly INavigationService _navigationService;
+
+        public ViewAViewModel(INavigationService navigationService)
         {
+            _navigationService = navigationService;
+
             NavigateCommand = new DelegateCommand(Navigate);
         }
 
@@ -24,6 +29,7 @@ namespace PrismFormsAutofac.ViewModels
 
         private void Navigate()
         {
+            _navigationService.NavigateAsync("ViewB");
         }
     }
 }
