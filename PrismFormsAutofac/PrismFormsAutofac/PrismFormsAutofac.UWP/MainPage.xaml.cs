@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Autofac;
-using Prism.Autofac.Forms;
+using Prism.Autofac;
 
 namespace PrismFormsAutofac.UWP
 {
@@ -29,9 +29,15 @@ namespace PrismFormsAutofac.UWP
 
     public class UwpInitializer : IPlatformInitializer
     {
-        public void RegisterTypes(IContainer container)
-        {
+        // Changed from 6.3 to 7 as we updated Autofac and container.Update became obsolete
+        //public void RegisterTypes(IContainer container)
+        //{
 
+        //}
+
+        public void RegisterTypes(ContainerBuilder container)
+        {
+            throw new NotImplementedException();
         }
     }
 

@@ -1,6 +1,5 @@
 ﻿using Autofac;
 using Prism.Autofac;
-using Prism.Autofac.Forms;
 using PrismFormsAutofac.Views;
 using Xamarin.Forms;
 

@@ -5,6 +5,6 @@
              x:Class="PrismFormsAutofac.Views.MainPage"
              Title="MainPage">
   <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-    <Label Text="Hello Germany" />
+    <Label Text="Hello Hilversum" />
   </StackLayout>
 </ContentPage>
