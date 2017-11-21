@@ -19,6 +19,7 @@ namespace PrismFormsAutofac
             Builder.RegisterTypeForNavigation<MainPage>();
             Builder.RegisterTypeForNavigation<ViewA>();
             Builder.RegisterTypeForNavigation<ViewB>();
+            Builder.RegisterTypeForNavigation<EmptyTabbedPage>();
         }
     }
 }

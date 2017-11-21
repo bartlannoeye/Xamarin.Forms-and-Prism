@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using System;
+using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
 using Prism.Navigation;
@@ -16,6 +17,9 @@ namespace PrismFormsAutofac.ViewModels
             
             Title = "Hello from ViewModel";
             NavigateCommand = new DelegateCommand(Navigate).ObservesCanExecute(() => IsActive);
+            NavigateSuperlinkCommand = new DelegateCommand(NavigateSuperlink);
+            NavigateCreateTabsCommand = new DelegateCommand(NavigateCreateTabs);
+
             eventAggregator.GetEvent<MyEvent>().Subscribe((s) => Title = s);
         }
 
@@ -34,10 +38,23 @@ namespace PrismFormsAutofac.ViewModels
         }
 
         public DelegateCommand NavigateCommand { get; private set; }
+        public DelegateCommand NavigateSuperlinkCommand { get; }
+        public DelegateCommand NavigateCreateTabsCommand { get; }
 
         private void Navigate()
         {
             _navigationService.NavigateAsync("ViewA");
+        }
+
+        private void NavigateSuperlink()
+        {
+            _navigationService.NavigateAsync("EmptyTabbedPage?createTab=ViewA/ViewA?user=bart/ViewB?id=fromSuperlink");
+        }
+
+        private async void NavigateCreateTabs()
+        {
+            //_navigationService.NavigateAsync("EmptyTabbedPage?createTab=TabA&createTab=TabB");
+            await _navigationService.NavigateAsync($"EmptyTabbedPage?{KnownNavigationParameters.CreateTab}=ViewA&{KnownNavigationParameters.CreateTab}=ViewB");
         }
     }
 }
