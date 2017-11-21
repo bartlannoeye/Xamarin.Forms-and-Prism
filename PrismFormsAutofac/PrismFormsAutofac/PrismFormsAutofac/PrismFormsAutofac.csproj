@@ -38,6 +38,7 @@
     <Compile Include="Events\MyEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\EmptyTabbedPageViewModel.cs" />
+    <Compile Include="ViewModels\ViewCViewModel.cs" />
     <Compile Include="Views\EmptyTabbedPage.xaml.cs">
       <DependentUpon>EmptyTabbedPage.xaml</DependentUpon>
     </Compile>
@@ -46,6 +47,12 @@
     </Compile>
     <Compile Include="Views\ViewB.xaml.cs">
       <DependentUpon>ViewB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewC.xaml.cs">
+      <DependentUpon>ViewC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewC_UWP.xaml.cs">
+      <DependentUpon>ViewC_UWP.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -113,6 +120,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\EmptyTabbedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ViewC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ViewC_UWP.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

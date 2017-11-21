@@ -12,5 +12,6 @@
         <Label Text="Bonus" />
         <Button Text="Superlink" Command="{Binding NavigateSuperlinkCommand}" />
         <Button Text="Create tabs" Command="{Binding NavigateCreateTabsCommand}" />
+        <Button Text="On platform" Command="{Binding NavigateOnPlatformCommand}" />
     </StackLayout>
 </ContentPage>
